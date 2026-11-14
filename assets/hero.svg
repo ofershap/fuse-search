@@ -14,5 +14,5 @@
     <text x="115" y="400" fill="#8b949e" font-size="30">3. <tspan fill="#f0f6fc">The </tspan><tspan fill="#79c0ff">F</tspan><tspan fill="#f0f6fc">ellowship of the Ring</tspan><tspan fill="#8b949e">  score 0.118</tspan></text>
   </g>
   <text x="640" y="540" text-anchor="middle" fill="#f0f6fc" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="52" font-weight="bold">fuse-search</text>
-  <text x="640" y="585" text-anchor="middle" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26">Fuse.js 7.5.0 for Go - fuzzy search verified bit-exact against the original, zero dependencies</text>
+  <text x="640" y="585" text-anchor="middle" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26">Fuse.js 7.5.0 for Go - bit-exact fuzzy search, zero dependencies</text>
 </svg>
