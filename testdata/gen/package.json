@@ -1,0 +1,9 @@
+{
+  "name": "fuse-search-golden-gen",
+  "private": true,
+  "description": "Golden fixture generator: runs the reference fuse.js (pinned) over a fixed corpus and records exact outputs.",
+  "dependencies": {
+    "fuse.js": "7.5.0"
+  },
+  "type": "module"
+}

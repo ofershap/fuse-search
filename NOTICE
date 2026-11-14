@@ -1,0 +1,13 @@
+fuse-search
+Copyright 2026 Ofer Shapira
+
+This product includes a Go port of Fuse.js (https://fusejs.io),
+Copyright (c) 2017-present Kiro Risk, licensed under the Apache License 2.0.
+
+The files jsfdlibm.go contain Go ports of fdlibm e_pow.c and e_log.c as
+used by V8 (deps/v8/src/base/ieee754.cc, BSD-style license). Original
+fdlibm: Copyright (C) 1993 by Sun Microsystems, Inc.
+
+unicode_tables.go is generated from Node.js (V8) runtime behavior
+(String.prototype.toLowerCase and fuse.js stripDiacritics) and contains
+no upstream source code.
