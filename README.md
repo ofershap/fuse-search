@@ -2,11 +2,6 @@
   <img src="assets/hero.svg" alt="fuse-search: a typo query 'fzy srch' returns ranked, highlighted results" width="100%">
   <h1>fuse-search</h1>
   <p><strong>Fuse.js for Go: the fuzzy search your JS frontend already ships, verified score-for-score against the original.</strong></p>
-  <p>
-    <a href="https://github.com/ofershap/fuse-search/actions"><img src="https://github.com/ofershap/fuse-search/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-    <a href="https://pkg.go.dev/github.com/ofershap/fuse-search"><img src="https://pkg.go.dev/badge/github.com/ofershap/fuse-search.svg" alt="Go Reference"></a>
-    <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License: Apache-2.0"></a>
-  </p>
 </div>
 
 [Fuse.js](https://fusejs.io) is the de-facto standard for client-side fuzzy search (about 19M npm downloads/week as of November 2026). When the same product has a Go backend, the usual options are a rewrite that scores differently, a heavyweight search server, or shipping everything to the client. fuse-search is a line-by-line port of the Fuse.js 7.5.0 engine, verified against the npm package on a pinned differential corpus: same scores, same match ranges, same ordering, on every case tested (see [Verified against the original](#verified-against-the-original-not-just-inspired-by-it) for exactly what that covers, and [Known boundaries](#known-boundaries-by-design) for what it does not).
@@ -129,8 +124,28 @@ Fuzzy search (fuse-search) tolerates typos and partial matches over in-memory co
 
 </details>
 
+## Contributing
+
+Issues and PRs welcome - see [CONTRIBUTING.md](CONTRIBUTING.md). Please report security issues privately per [SECURITY.md](SECURITY.md).
+
 ---
 
-Part of the [gitshow.dev](https://gitshow.dev) Go toolbox - [gailwind](https://github.com/ofershap/gailwind) · [lather](https://github.com/ofershap/lather) · [json5](https://github.com/ofershap/json5) · [poppy-go](https://github.com/ofershap/poppy-go) · [cron-utils](https://github.com/ofershap/cron-utils) · [handlebars-go](https://github.com/ofershap/handlebars-go) · [fxp-go](https://github.com/ofershap/fxp-go)
+More projects: [gitshow](https://github.com/ofershap/gitshow) · [real-browser-mcp](https://github.com/ofershap/real-browser-mcp) · [cursor-usage-tracker](https://github.com/ofershap/cursor-usage-tracker) · [mcp-server-markdown](https://github.com/ofershap/mcp-server-markdown) · [readme-builder](https://github.com/ofershap/readme-builder) · [grok-bot-skills](https://github.com/ofershap/grok-bot-skills) · [mashov-parent-brief](https://github.com/ofershap/mashov-parent-brief) · [gailwind](https://github.com/ofershap/gailwind) · [lather](https://github.com/ofershap/lather)
 
-Apache-2.0 © 2026 Ofer Shapira. See [NOTICE](NOTICE) for attribution to Fuse.js and fdlibm. Built with the README Builder.
+---
+
+## Author
+
+[![Made by ofershap](https://gitshow.dev/api/card/ofershap)](https://gitshow.dev/ofershap)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/ofershap)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat&logo=github&logoColor=white)](https://github.com/ofershap)
+[![Blog](https://img.shields.io/badge/Blog-ofershap.github.io-FF5722?style=flat&logo=rss&logoColor=white)](https://ofershap.github.io/)
+
+---
+
+<sub>README built with [README Builder](https://ofershap.github.io/readme-builder/)</sub>
+
+## License
+
+[Apache-2.0](LICENSE) &copy; [Ofer Shapira](https://github.com/ofershap), matching the Fuse.js upstream license. See [NOTICE](NOTICE) for attribution to Fuse.js and fdlibm.

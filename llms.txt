@@ -1,0 +1,19 @@
+# fuse-search
+
+> Fuse.js for Go (github.com/ofershap/fuse-search): a line-by-line port of
+> the Fuse.js 7.5.0 fuzzy-search engine, verified score-for-score against the
+> npm package on a pinned differential corpus (113 golden cases + mutation
+> sequences + index roundtrip, exact float64 equality). All 20 fuse.js
+> options with the same defaults. Standard library only, no dependencies.
+
+## Usage
+
+- f, err := fuse.New(docs, &fuse.Options{Keys: []any{"title", fuse.Key{Name: "author.lastName", Weight: 2}}, IncludeScore: fuse.Bool(true)}, nil); f.Search("query", nil) returns ranked results with scores and match ranges.
+- fuse.Match(pattern, text, opts) for one-shot compares (token search rejected, as in fuse.js).
+- Extended search, logical queries, weighted nested keys, diacritics handling and field-length norm all match fuse.js 7.5.0.
+- Indexes serialize and interchange with the JS build (see README for the verified corpus scope).
+
+## Docs
+
+- [README](https://github.com/ofershap/fuse-search#readme): install, feature surface, parity corpus, known boundaries, Q&A
+- [pkg.go.dev](https://pkg.go.dev/github.com/ofershap/fuse-search): library API
