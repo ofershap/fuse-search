@@ -212,3 +212,59 @@ for (const m of mutCases) {
 
 fs.writeFileSync(new URL('../goldens.json', import.meta.url), JSON.stringify(out, null, 1))
 console.log('cases:', out.cases.length, 'mutations:', out.mutations.length)
+
+// ── numeric format boundary probe ────────────────────────────────
+// JS String(number) output for boundary magnitudes; the Go test compares
+// its key-extraction formatting against these strings exactly.
+const numericFormatProbe = [
+  1e-8, 1.5e-8, 5e-7, 1e-7, 9.99999e-7, 1e-6, 0.000001, 0.1 + 0.2, 3.14,
+  1e20, 123456789012345680000, 1e21, 2.5e21, 1e22, -1e-8, -5e-7, 0, 100,
+]
+fs.writeFileSync(
+  new URL('./numeric_format.json', import.meta.url),
+  JSON.stringify(numericFormatProbe.map((v) => String(v)), null, 2)
+)
+
+// ── index interchange fixture (JS -> Go direction) ───────────────
+// An index built entirely by fuse.js, serialized with toJSON(), plus the
+// search results fuse.js produces when searching THROUGH that parsed index.
+// The Go interchange test parses the same JSON and must reproduce results.
+const ixDocs = [
+  { title: 'Old Man\'s War', author: { lastName: 'Scalzi' }, tags: ['sci-fi', 'war'] },
+  { title: 'The Lock Artist', author: { lastName: 'Hamilton' }, tags: ['crime'] },
+  { title: 'Résumé of a Unicorn 🦄', author: { lastName: 'Müller' }, tags: ['fairy', 'emoji'] },
+  { title: 'İstanbul Tales', author: { lastName: 'Sørensen' }, tags: ['travel'] },
+]
+const ixKeys = ['title', { name: 'author.lastName', weight: 2 }, 'tags']
+const ixOptions = { includeScore: true, includeMatches: true }
+const jsIndex = Fuse.createIndex(ixKeys, ixDocs)
+const jsIndexJSON = jsIndex.toJSON()
+const parsedFuse = new Fuse(ixDocs, ixOptions, Fuse.parseIndex(JSON.parse(JSON.stringify(jsIndexJSON)), ixOptions))
+const ixQueries = ['old man', 'unicorn', "'lock", 'scazli', 'emoji 🦄']
+fs.writeFileSync(
+  new URL('../index_from_js.json', import.meta.url),
+  JSON.stringify({
+    docs: ixDocs,
+    keys: ixKeys,
+    options: ixOptions,
+    index: jsIndexJSON,
+    results: ixQueries.map((q, i) => ({ id: `ix${i}`, query: q, results: serialize(parsedFuse.search(q)) })),
+  }, null, 2)
+)
+
+// ── extended-search edge patterns (empty-capture tokens) ─────────
+// Patterns like "'" hit fuse.js's `if (token)` truthiness: an empty regex
+// capture is skipped and the token falls through to a later matcher (usually
+// the fuzzy catch-all). These cases pin that behavior differentially.
+const edgeDocs = ['old man', "it's here", 'say "hi"', 'a=b', 'caret^', 'nope!', '']
+const edgePatterns = ["'", '=', '""', '^', '!', '!^', "'a", '=a=b', '\|', 'a\|b']
+const edgeOptions = { useExtendedSearch: true, includeScore: true, includeMatches: true }
+fs.writeFileSync(
+  new URL('../extended_edge.json', import.meta.url),
+  JSON.stringify({
+    docs: edgeDocs,
+    options: edgeOptions,
+    cases: edgePatterns.map((q, i) => ({ id: `edge${i}`, query: q, expected: serialize(new Fuse(edgeDocs, edgeOptions).search(q)) })),
+  }, null, 2)
+)
+console.log('edge + interchange + numeric fixtures written')

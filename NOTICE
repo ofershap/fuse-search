@@ -1,13 +1,46 @@
 fuse-search
 Copyright 2026 Ofer Shapira
 
-This product includes a Go port of Fuse.js (https://fusejs.io),
-Copyright (c) 2017-present Kiro Risk, licensed under the Apache License 2.0.
+========================================================================
+Fuse.js
+========================================================================
 
-The files jsfdlibm.go contain Go ports of fdlibm e_pow.c and e_log.c as
-used by V8 (deps/v8/src/base/ieee754.cc, BSD-style license). Original
-fdlibm: Copyright (C) 1993 by Sun Microsystems, Inc.
+fuse-search is a Go port of Fuse.js 7.5.0 (https://fusejs.io,
+https://github.com/krisk/Fuse), licensed under the Apache License 2.0
+(the same license this project is distributed under):
 
-unicode_tables.go is generated from Node.js (V8) runtime behavior
-(String.prototype.toLowerCase and fuse.js stripDiacritics) and contains
-no upstream source code.
+    Copyright (c) 2026 Kiro Risk (http://kiro.me)
+
+The full license text is in the LICENSE file of this repository and at
+https://github.com/krisk/Fuse/blob/main/LICENSE
+
+========================================================================
+fdlibm (via V8)
+========================================================================
+
+jsfdlibm.go contains Go ports of the fdlibm e_pow.c and e_log.c routines
+as vendored and used by V8 (v8/src/base/ieee754.cc, BSD-3-Clause
+license). These are the exact routines JavaScript's Math.pow and Math.log
+execute on V8, ported so scores match fuse.js bit-for-bit. The original
+fdlibm notice:
+
+    Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
+
+    Developed at SunSoft, a Sun Microsystems, Inc. business.
+    Permission to use, copy, modify, and distribute this
+    software is freely granted, provided that this notice
+    is preserved.
+
+V8 itself is licensed under BSD-3-Clause:
+https://github.com/v8/v8/blob/main/LICENSE
+
+========================================================================
+Unicode tables
+========================================================================
+
+unicode_tables.go is generated data, produced by running Node.js (V8)
+over every Unicode code point: String.prototype.toLowerCase behavior and
+the NFD + combining-mark normalization that fuse.js's stripDiacritics
+performs. It contains no upstream source code. The underlying character
+data derives from the Unicode Character Database, whose license is at
+https://www.unicode.org/license.txt

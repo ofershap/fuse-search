@@ -192,8 +192,9 @@ func jsToString(value any) string {
 	}
 }
 
-// jsFormatFloat renders a float the way JS String(number) does for the
-// magnitudes typical in indexed data (no exponent notation in [1e-7, 1e21)).
+// jsFormatFloat renders a float the way JS String(number) does: decimal
+// notation for magnitudes in [1e-6, 1e21), exponent notation outside it.
+// Verified against Node in golden_test.go (testdata/gen/numeric_format.json).
 func jsFormatFloat(f float64) string {
 	if f == 0 {
 		if math.Signbit(f) {
@@ -202,7 +203,7 @@ func jsFormatFloat(f float64) string {
 		return "0"
 	}
 	abs := math.Abs(f)
-	if abs >= 1e-7 && abs < 1e21 {
+	if abs >= 1e-6 && abs < 1e21 {
 		s := strconv.FormatFloat(f, 'f', -1, 64)
 		return s
 	}

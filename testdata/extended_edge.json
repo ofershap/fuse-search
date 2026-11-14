@@ -1,0 +1,381 @@
+{
+  "docs": [
+    "old man",
+    "it's here",
+    "say \"hi\"",
+    "a=b",
+    "caret^",
+    "nope!",
+    ""
+  ],
+  "options": {
+    "useExtendedSearch": true,
+    "includeScore": true,
+    "includeMatches": true
+  },
+  "cases": [
+    {
+      "id": "edge0",
+      "query": "'",
+      "expected": [
+        {
+          "item": "it's here",
+          "refIndex": 1,
+          "matches": [
+            {
+              "indices": [
+                [
+                  2,
+                  2
+                ]
+              ],
+              "value": "it's here"
+            }
+          ],
+          "score": 0.06292572195040995
+        }
+      ]
+    },
+    {
+      "id": "edge1",
+      "query": "=",
+      "expected": [
+        {
+          "item": "a=b",
+          "refIndex": 3,
+          "matches": [
+            {
+              "indices": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "value": "a=b"
+            }
+          ],
+          "score": 0.01
+        }
+      ]
+    },
+    {
+      "id": "edge2",
+      "query": "\"\"",
+      "expected": [
+        {
+          "item": "say \"hi\"",
+          "refIndex": 2,
+          "matches": [
+            {
+              "indices": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "value": "say \"hi\""
+            }
+          ],
+          "score": 0.6383561397459254
+        }
+      ]
+    },
+    {
+      "id": "edge3",
+      "query": "^",
+      "expected": [
+        {
+          "item": "caret^",
+          "refIndex": 4,
+          "matches": [
+            {
+              "indices": [
+                [
+                  5,
+                  5
+                ]
+              ],
+              "value": "caret^"
+            }
+          ],
+          "score": 0.05
+        }
+      ]
+    },
+    {
+      "id": "edge4",
+      "query": "!",
+      "expected": [
+        {
+          "item": "nope!",
+          "refIndex": 5,
+          "matches": [
+            {
+              "indices": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "value": "nope!"
+            }
+          ],
+          "score": 0.04
+        }
+      ]
+    },
+    {
+      "id": "edge5",
+      "query": "!^",
+      "expected": [
+        {
+          "item": "old man",
+          "refIndex": 0,
+          "matches": [
+            {
+              "indices": [
+                [
+                  0,
+                  6
+                ]
+              ],
+              "value": "old man"
+            }
+          ],
+          "score": 0
+        },
+        {
+          "item": "it's here",
+          "refIndex": 1,
+          "matches": [
+            {
+              "indices": [
+                [
+                  0,
+                  8
+                ]
+              ],
+              "value": "it's here"
+            }
+          ],
+          "score": 0
+        },
+        {
+          "item": "say \"hi\"",
+          "refIndex": 2,
+          "matches": [
+            {
+              "indices": [
+                [
+                  0,
+                  7
+                ]
+              ],
+              "value": "say \"hi\""
+            }
+          ],
+          "score": 0
+        },
+        {
+          "item": "a=b",
+          "refIndex": 3,
+          "matches": [
+            {
+              "indices": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "value": "a=b"
+            }
+          ],
+          "score": 0
+        },
+        {
+          "item": "nope!",
+          "refIndex": 5,
+          "matches": [
+            {
+              "indices": [
+                [
+                  0,
+                  4
+                ]
+              ],
+              "value": "nope!"
+            }
+          ],
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "edge6",
+      "query": "'a",
+      "expected": [
+        {
+          "item": "old man",
+          "refIndex": 0,
+          "matches": [
+            {
+              "indices": [
+                [
+                  5,
+                  5
+                ]
+              ],
+              "value": "old man"
+            }
+          ],
+          "score": 0
+        },
+        {
+          "item": "say \"hi\"",
+          "refIndex": 2,
+          "matches": [
+            {
+              "indices": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "value": "say \"hi\""
+            }
+          ],
+          "score": 0
+        },
+        {
+          "item": "a=b",
+          "refIndex": 3,
+          "matches": [
+            {
+              "indices": [
+                [
+                  0,
+                  0
+                ]
+              ],
+              "value": "a=b"
+            }
+          ],
+          "score": 0
+        },
+        {
+          "item": "caret^",
+          "refIndex": 4,
+          "matches": [
+            {
+              "indices": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "value": "caret^"
+            }
+          ],
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "edge7",
+      "query": "=a=b",
+      "expected": [
+        {
+          "item": "a=b",
+          "refIndex": 3,
+          "matches": [
+            {
+              "indices": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "value": "a=b"
+            }
+          ],
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": "edge8",
+      "query": "|",
+      "expected": []
+    },
+    {
+      "id": "edge9",
+      "query": "a|b",
+      "expected": [
+        {
+          "item": "a=b",
+          "refIndex": 3,
+          "matches": [
+            {
+              "indices": [
+                [
+                  0,
+                  0
+                ]
+              ],
+              "value": "a=b"
+            }
+          ],
+          "score": 0.001
+        },
+        {
+          "item": "caret^",
+          "refIndex": 4,
+          "matches": [
+            {
+              "indices": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "value": "caret^"
+            }
+          ],
+          "score": 0.01
+        },
+        {
+          "item": "say \"hi\"",
+          "refIndex": 2,
+          "matches": [
+            {
+              "indices": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "value": "say \"hi\""
+            }
+          ],
+          "score": 0.038547835766577186
+        },
+        {
+          "item": "old man",
+          "refIndex": 0,
+          "matches": [
+            {
+              "indices": [
+                [
+                  5,
+                  5
+                ]
+              ],
+              "value": "old man"
+            }
+          ],
+          "score": 0.12027401062119145
+        }
+      ]
+    }
+  ]
+}

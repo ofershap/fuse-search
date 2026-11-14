@@ -1,0 +1,352 @@
+{
+  "docs": [
+    {
+      "title": "Old Man's War",
+      "author": {
+        "lastName": "Scalzi"
+      },
+      "tags": [
+        "sci-fi",
+        "war"
+      ]
+    },
+    {
+      "title": "The Lock Artist",
+      "author": {
+        "lastName": "Hamilton"
+      },
+      "tags": [
+        "crime"
+      ]
+    },
+    {
+      "title": "Résumé of a Unicorn 🦄",
+      "author": {
+        "lastName": "Müller"
+      },
+      "tags": [
+        "fairy",
+        "emoji"
+      ]
+    },
+    {
+      "title": "İstanbul Tales",
+      "author": {
+        "lastName": "Sørensen"
+      },
+      "tags": [
+        "travel"
+      ]
+    }
+  ],
+  "keys": [
+    "title",
+    {
+      "name": "author.lastName",
+      "weight": 2
+    },
+    "tags"
+  ],
+  "options": {
+    "includeScore": true,
+    "includeMatches": true
+  },
+  "index": {
+    "keys": [
+      {
+        "path": [
+          "title"
+        ],
+        "id": "title",
+        "weight": 1,
+        "src": "title"
+      },
+      {
+        "path": [
+          "author",
+          "lastName"
+        ],
+        "id": "author.lastName",
+        "weight": 2,
+        "src": "author.lastName"
+      },
+      {
+        "path": [
+          "tags"
+        ],
+        "id": "tags",
+        "weight": 1,
+        "src": "tags"
+      }
+    ],
+    "records": [
+      {
+        "i": 0,
+        "$": {
+          "0": {
+            "v": "Old Man's War",
+            "n": 0.577
+          },
+          "1": {
+            "v": "Scalzi",
+            "n": 1
+          },
+          "2": [
+            {
+              "v": "sci-fi",
+              "i": 0,
+              "n": 1
+            },
+            {
+              "v": "war",
+              "i": 1,
+              "n": 1
+            }
+          ]
+        }
+      },
+      {
+        "i": 1,
+        "$": {
+          "0": {
+            "v": "The Lock Artist",
+            "n": 0.577
+          },
+          "1": {
+            "v": "Hamilton",
+            "n": 1
+          },
+          "2": [
+            {
+              "v": "crime",
+              "i": 0,
+              "n": 1
+            }
+          ]
+        }
+      },
+      {
+        "i": 2,
+        "$": {
+          "0": {
+            "v": "Résumé of a Unicorn 🦄",
+            "n": 0.447
+          },
+          "1": {
+            "v": "Müller",
+            "n": 1
+          },
+          "2": [
+            {
+              "v": "fairy",
+              "i": 0,
+              "n": 1
+            },
+            {
+              "v": "emoji",
+              "i": 1,
+              "n": 1
+            }
+          ]
+        }
+      },
+      {
+        "i": 3,
+        "$": {
+          "0": {
+            "v": "İstanbul Tales",
+            "n": 0.707
+          },
+          "1": {
+            "v": "Sørensen",
+            "n": 1
+          },
+          "2": [
+            {
+              "v": "travel",
+              "i": 0,
+              "n": 1
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "ix0",
+      "query": "old man",
+      "results": [
+        {
+          "item": {
+            "title": "Old Man's War",
+            "author": {
+              "lastName": "Scalzi"
+            },
+            "tags": [
+              "sci-fi",
+              "war"
+            ]
+          },
+          "refIndex": 0,
+          "matches": [
+            {
+              "indices": [
+                [
+                  0,
+                  6
+                ]
+              ],
+              "value": "Old Man's War",
+              "key": "title"
+            }
+          ],
+          "score": 0.01857804455091699
+        }
+      ]
+    },
+    {
+      "id": "ix1",
+      "query": "unicorn",
+      "results": [
+        {
+          "item": {
+            "title": "Résumé of a Unicorn 🦄",
+            "author": {
+              "lastName": "Müller"
+            },
+            "tags": [
+              "fairy",
+              "emoji"
+            ]
+          },
+          "refIndex": 2,
+          "matches": [
+            {
+              "indices": [
+                [
+                  12,
+                  18
+                ]
+              ],
+              "value": "Résumé of a Unicorn 🦄",
+              "key": "title"
+            }
+          ],
+          "score": 0.3876091468028354
+        }
+      ]
+    },
+    {
+      "id": "ix2",
+      "query": "'lock",
+      "results": [
+        {
+          "item": {
+            "title": "The Lock Artist",
+            "author": {
+              "lastName": "Hamilton"
+            },
+            "tags": [
+              "crime"
+            ]
+          },
+          "refIndex": 1,
+          "matches": [
+            {
+              "indices": [
+                [
+                  4,
+                  7
+                ]
+              ],
+              "value": "The Lock Artist",
+              "key": "title"
+            }
+          ],
+          "score": 0.4282693175315072
+        }
+      ]
+    },
+    {
+      "id": "ix3",
+      "query": "scazli",
+      "results": [
+        {
+          "item": {
+            "title": "Old Man's War",
+            "author": {
+              "lastName": "Scalzi"
+            },
+            "tags": [
+              "sci-fi",
+              "war"
+            ]
+          },
+          "refIndex": 0,
+          "matches": [
+            {
+              "indices": [
+                [
+                  0,
+                  5
+                ]
+              ],
+              "value": "Scalzi",
+              "key": "author.lastName"
+            },
+            {
+              "indices": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  5,
+                  5
+                ]
+              ],
+              "value": "sci-fi",
+              "key": "tags",
+              "refIndex": 0
+            }
+          ],
+          "score": 0.05555555555555555
+        }
+      ]
+    },
+    {
+      "id": "ix4",
+      "query": "emoji 🦄",
+      "results": [
+        {
+          "item": {
+            "title": "Résumé of a Unicorn 🦄",
+            "author": {
+              "lastName": "Müller"
+            },
+            "tags": [
+              "fairy",
+              "emoji"
+            ]
+          },
+          "refIndex": 2,
+          "matches": [
+            {
+              "indices": [
+                [
+                  0,
+                  4
+                ]
+              ],
+              "value": "emoji",
+              "key": "tags",
+              "refIndex": 1
+            }
+          ],
+          "score": 0.375
+        }
+      ]
+    }
+  ]
+}
