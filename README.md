@@ -4,7 +4,7 @@
   <p><strong>Fuse.js for Go: the fuzzy search your JS frontend already ships, verified score-for-score against the original.</strong></p>
 </div>
 
-[Fuse.js](https://fusejs.io) is the de-facto standard for client-side fuzzy search (about 19M npm downloads/week as of November 2026). When the same product has a Go backend, the usual options are a rewrite that scores differently, a heavyweight search server, or shipping everything to the client. fuse-search is a line-by-line port of the Fuse.js 7.5.0 engine, verified against the npm package on a pinned differential corpus: same scores, same match ranges, same ordering, on every case tested (see [Verified against the original](#verified-against-the-original-not-just-inspired-by-it) for exactly what that covers, and [Known boundaries](#known-boundaries-by-design) for what it does not).
+A user types `fzy srch` into your search box. Your JS frontend's [Fuse.js](https://fusejs.io) forgives the typos. When the same search has to run in your Go backend - server-side filtering, an API endpoint, a CLI - a rewrite that scores differently makes the two halves of your product disagree, and the usual alternatives are a heavyweight search server or shipping everything to the client. fuse-search is a line-by-line port of the Fuse.js 7.5.0 engine (about 19M npm downloads/week as of November 2026), verified against the npm package on a pinned differential corpus: same scores, same match ranges, same ordering, on every case tested (see [Verified against the original](#verified-against-the-original-not-just-inspired-by-it) for exactly what that covers, and [Known boundaries](#known-boundaries-by-design) for what it does not).
 
 ```bash
 go get github.com/ofershap/fuse-search
